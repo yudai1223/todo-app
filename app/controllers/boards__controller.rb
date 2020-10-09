@@ -8,7 +8,6 @@ class BoardsController < ApplicationController
     end
 
     def new
-        @board = current_user.boards.build
-        @boards= current_user.boards.build
+        @board = Board.new
     end
 end
