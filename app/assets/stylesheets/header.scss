@@ -1,5 +1,12 @@
-.header_logos{
+.header{
+    height: 10%;
+&_right{
+    float: right;
+}
+
+&_logos{
     position: absolute;
+    float: left;
     width: 56px;
     height: 25px;
     left: 30px;
@@ -7,12 +14,19 @@
     font-size: 18px;
     line-height: 25px;
 }
+}
 .line{
     position: absolute;;
-    width: 1920px;
+    width: 414px;
     height:1px;
-    top: 58px;
+    top: 15%;
     left: 0%;
     opacity: 10%;
     background-color: black;
+}
+img{
+    width: 40px;
+    height: 40px;
+    margin: 10px 20px;
+
 }

@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 2020_10_09_161241) do
   enable_extension "plpgsql"
 
   create_table "boards", force: :cascade do |t|
+    t.bigint "user_id"
     t.string "title"
     t.text "content"
-    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_boards_on_user_id"
@@ -36,5 +36,4 @@ ActiveRecord::Schema.define(version: 2020_10_09_161241) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "boards", "users"
 end
