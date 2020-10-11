@@ -1,0 +1,73 @@
+.card{
+    position: absolute;
+    width: 362px;
+    height: 161px;
+    left: 30px;
+    top: 170px;
+    background: #F4F4F4;
+    border-radius: 10px;
+
+    &_right{
+        float: right;
+        position: absolute;
+    width: 24px;
+    height: 6px;
+    left: 300px;
+    top: 50px;
+    background: #80808000;
+        }
+
+&_title{
+    position: absolute;
+height: 25px;
+left: 0%;
+right: 76.79%;
+top: calc(50% - 25px/2 - 12.5px);
+
+font-family: Avenir;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 25px;
+/* identical to box height */
+color: #000000;
+
+}
+
+&_content{
+    position: absolute;
+    height: 19px;
+    left: 0%;
+    right: 0%;
+    top: calc(50% - 19px/2 + 15.5px);
+    
+    font-family: Avenir;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #000000;
+    mix-blend-mode: normal;
+    opacity: 0.4;
+
+}
+
+&_user{
+    
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 50px;
+    top: 272px;
+    
+    background: url(user.png);
+}
+
+&_img{
+    position: absolute;
+    top: 66%;
+    left: -17px;
+
+
+}
+}
