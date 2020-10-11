@@ -2,7 +2,11 @@
 .container
   .card
     .card_title Bracets
-    =image_tag 'Combined Shape.png', class:'card_right'
+    .dropdown
+      =image_tag 'Combined Shape.png', class:'card_right'
+      .dropdown-content.mini
+        %a 編集する
+        %a 削除する
     .card_content Saving money – is something we would all like.
     = image_tag 'Oval.png',class:'card_img'
   - @boards.each do |board|
