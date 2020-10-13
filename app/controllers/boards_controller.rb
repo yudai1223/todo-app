@@ -1,4 +1,6 @@
 class BoardsController < ApplicationController
+
+
     def index
         @boards = Board.all
     end
@@ -8,7 +10,8 @@ class BoardsController < ApplicationController
     end
 
     def new
-        @board = Board.new
+        @board = current_user.boards.build  #サインインしているユーザーを取得
+        @boards = current_user.boards.build
     end
 
     def create
@@ -25,3 +28,4 @@ class BoardsController < ApplicationController
         params.require(:board).permit(:title, :content)
     end
 end
+
