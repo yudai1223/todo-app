@@ -5,11 +5,11 @@
     =image_tag 'Combined Shape.png', class:'card_right'
     .card_content Saving money – is something we would all like.
     = image_tag 'Oval.png',class:'card_img'
-  - @boards.each do |board|
-    .card
-      .card_title Bracets
-      .card_content Saving money – is something we would all like.
-
+    
+- @boards.each do |board|
+  .card
+    .card_title Bracets
+    .card_content Saving money – is something we would all like.
   = link_to new_board_path do
     .float_btn
       .add_new-board + Add new borad
