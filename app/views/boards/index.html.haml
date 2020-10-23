@@ -1,3 +1,6 @@
 .container
-  %h2 All Boards
-  .ca
+.h2 All Boards
+- @boards.each do |board|
+  = render 'board' , board: board
+= link_to new_board_path do
+  .float_btn + Add new borad
