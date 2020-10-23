@@ -1,1 +1,12 @@
-%p show
+.board
+  %h1.board_title= @board.title
+  %h1.board_content= @board.content
+  .board_detail
+-#     -# = image_tag
+-#   - if user_signed_in? && current_user.has_written?(@board)
+-#   .board_detail_action
+  .dropdown
+  = image_tag 'Combined.png'
+  .dropdown-contnt.mine
+-#   = link_to '編集'
+-#   = link_to '削除'
