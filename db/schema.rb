@@ -10,15 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_03_111718) do
-# ActiveRecord::Schema.define(version: 2020_10_09_161241) do
+ActiveRecord::Schema.define(version: 2020_10_23_154956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "boards", force: :cascade do |t|
     t.bigint "user_id", null: false
-    # t.bigint "user_id"
     t.string "title"
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
@@ -26,7 +24,17 @@ ActiveRecord::Schema.define(version: 2020_10_03_111718) do
     t.index ["user_id"], name: "index_boards_on_user_id"
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "bords_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bords_id"], name: "index_tasks_on_bords_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
+    t.bigint "bords_id"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -34,6 +42,7 @@ ActiveRecord::Schema.define(version: 2020_10_03_111718) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["bords_id"], name: "index_users_on_bords_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
