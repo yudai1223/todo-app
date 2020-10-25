@@ -9,17 +9,24 @@ class BoardsController < ApplicationController
     end
 
     def new
-        # @board = current_user.board.build
-        @boards = current_user.boards.build
+        # @boards = current_user.board.build
+        # @boards = current_user.boards.build
+        @board = Board.new
     end
 
     def create
-        @board = current_user.boards(board_params)
-         if @board.save
-           redirect_to.board_path(@board)
-         else
-            render :new
-         end
+        @board = Board.new(board_params)
+        if @board.save
+          redirect_to.board_path(@board)  
+        else
+          render :new
+        end
+        # @board = current_user.boards(board_params)
+        #  if @board.save
+        #    redirect_to.board_path(@board)
+        #  else
+        #     render :new
+        #  end
     end
 
     private
