@@ -10,14 +10,14 @@ class BoardsController < ApplicationController
 
     def new
         # @boards = current_user.board.build
-        # @boards = current_user.boards.build
-        @board = Board.new
+        @boards = current_user.boards.build
+        # @board = Board.new
     end
 
     def create
-        @board = Board.new(board_params)
+        @board = current_user.boards.build(board_params)
         if @board.save
-          redirect_to.board_path(@board)  
+          redirect_to board_path(@board) 
         else
           render :new
         end
@@ -28,11 +28,12 @@ class BoardsController < ApplicationController
         #     render :new
         #  end
     end
-
+    
+    end
     private
     def board_params
         params.require(:board).permit(:title, :content)
     end
     
-end
+
 
