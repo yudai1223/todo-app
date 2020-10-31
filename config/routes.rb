@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   end
   　
   resource :profile, only: [:show, :edit, :update] do
-  end
-  end
+    end
+    end
