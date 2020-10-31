@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   # resources :boards, only: [:index, :show, :new, :create, :destroy, :edit, :update] do
   resources :boards  do
   resources :tasks
-  
+  end
   　
   resource :profile, only: [:show, :edit, :update] do
-  end
+     end
+     end
