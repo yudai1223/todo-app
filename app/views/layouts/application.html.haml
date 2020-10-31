@@ -14,7 +14,13 @@
       = image_tag 'Oval.png', class: 'header_right'
       .header_logos Boards
       .line
-    
-    
+    - if user_signed_in?
+      .dropdown
+        =image_tag 'user.png',class: 'header_avatar_dropbtn'
+        .dropdown-content
+          = link_to 'プロフィール'
+          = link_to 'ログアウト'
+    - else
+      = link_to 'ログイン' new_user_session_path,class: 'header_loginBtn'
 
 = yield
