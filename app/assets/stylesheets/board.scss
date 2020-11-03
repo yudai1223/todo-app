@@ -5,7 +5,7 @@ height: 161px;
 left: 30px;
 top: 16px;
 margin-bottom: 10%;
-background: #F4F4F4;
+background: rgb(141, 137, 137);
 border-radius: 10px;
 
 &_title{
@@ -40,4 +40,8 @@ line-height: 25px;
     mix-blend-mode: normal;
     opacity: 0.4;
 }
+}
+.float_right{
+    float: right;
+    height: auto;
 }
