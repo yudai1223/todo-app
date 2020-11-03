@@ -11,16 +11,16 @@
     %link{:crossorigin => "anonymous", :href => "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}
   %body
     %header.header
-      = image_tag 'Oval.png', class: 'header_right'
+      -# = image_tag 'Oval.png', class: 'header_right'
       .header_logos Boards
       .line
-    - if user_signed_in?
-      .dropdown
-        =image_tag 'user.png',class: 'header_avatar_dropbtn'
-        .dropdown-content
-          = link_to 'プロフィール'
-          = link_to 'ログアウト'
-    - else
-      = link_to 'ログイン' new_user_session_path,class: 'header_loginBtn'
+      - if user_signed_in?
+        .dropdown
+          = image_tag current_user.avatar_image, class: 'header_avatar_dropbtn header_right'
+          .dropdown-content
+            = link_to 'プロフィール', profile_path
+            = link_to 'ログアウト', destroy_user_session_path
+      - else
+        = link_to 'ログイン', new_user_session_path,class: 'header_loginBtn'
 
 = yield

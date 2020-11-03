@@ -1,7 +1,19 @@
-.board
-  %h1.board_title= @board.title
-  %h1.board_content= @board.content
-  .board_detail
+= link_to board_task_path(@board) do
+  .card
+    .card_content
+      .card_title
+        %h1.board_title= @board.title
+      .card_content  
+        %h1.board_content= @board.content
+      .card_detail
+        = image_tag  @board.user.avatar_image 
+    .board_detail_actions    
+      .dropdown
+        = image_tag 'Combined Shape.png' , class:'dropbtn float_right'
+        .dropdown-content.mini
+          = link_to '編集する', edit_board_path(@board)
+          = link_to '削除する'
+  
 -#     -# = image_tag
 -#   - if user_signed_in? && current_user.has_written?(@board)
 -#   .board_detail_action
