@@ -38,8 +38,13 @@ line-height: 25px;
     color: #000000;
     
     mix-blend-mode: normal;
-    opacity: 0.4;
+    opacity: 0.9;
 }
+
+ &_detail{
+     position: absolute;
+     right: 0%;
+ }
 }
 .float_right{
     float: right;
