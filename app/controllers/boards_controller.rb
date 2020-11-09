@@ -9,15 +9,15 @@ class BoardsController < ApplicationController
     end
 
     def new
-        @board = current_user.boards.build
-        # @boards = current_user.boards.build
+        # @boards = current_user.board.build
+        @boards = current_user.boards.build
         # @board = Board.new
     end
 
     def create
         @board = current_user.boards.build(board_params)
         if @board.save
-          redirect_to board_path(@board)
+          redirect_to board_path(@board) 
         else
           render :new
         end
@@ -27,32 +27,13 @@ class BoardsController < ApplicationController
         #  else
         #     render :new
         #  end
-    # end
-
     end
-
-    def edit
-        @board = current_user.boards.find(params[:id])
+    
     end
-
-    def update
-        @board = current_user.boards.find(params[:id])
-       if @board.update(board_params)
-         redirect_to board_path(@board)
-       end
-    end
-
-    def destroy
-        board = current_user.boards.find(params[:id])
-        board.destroy!
-        redirect_to root_path
-    end
-
     private
     def board_params
         params.require(:board).permit(:title, :content)
     end
-end
-
+    
 
 
