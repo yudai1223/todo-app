@@ -1,27 +1,32 @@
 class TasksController < ApplicationController
-    before_action :authenticate_user! , only: [:new, :create, :edit, :update, :destroy]
+    before_action :authenticate_user!
 
     def index
+        @board = Board.find(params[:board_id])
         @tasks = Task.all
     end
 
     def show
-        # board = board.find(params[:board_id])
+        @task = current_user.tasks.build
         @tasks = current_user.tasks.find(params[:id])
-      
     end
-    
+
     def new
-        @tasks = current_user.tasks.build
+        
+        board = Board.find(params[:board_id])
+        binding.pry
+        @task = board.tasks.build
+      
+        # @tasks = current_user.tasks.build
     end
 
     def create
-        @tasks = current_user.tasks(task_params)
-        @task.save
+        @task = current_user.tasks.build(task_params)
+        @task.save!
     end
 
   private
-  def tasks_params
+  def task_params
     params.require(:task).permit(:title, :content)
   end
 

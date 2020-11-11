@@ -1,13 +1,29 @@
+-# = link_to board_path(board) do
+-#   .card
+-#     -# - if board.eyecatch.attached?
+-#       .card_image
+-#         = image_tag board.eyecath
+-#     .card_content
+-#       .card_title
+-#         = board.title
+-#       .card_content
+-#         = board.content
+-#       .card_detail
+-#         = image_tag board.user.avatar_image
+-#         %div
+
 = link_to board_path(board) do
   .card
-    -# - if board.eyecatch.attached?
-      .card_image
-        = image_tag board.eyecath
     .card_content
       .card_title
-        = board.title
-      .card_content
-        = board.content
+        %h1.board_title= board.title
+      .card_content  
+        %h1.board_content= board.content
       .card_detail
-        = image_tag board.user.avatar_image
-        %div
+        = image_tag  board.user.avatar_image 
+    .board_detail_actions    
+      .dropdown
+        = image_tag 'Combined Shape.png' , class:'dropbtn float_right'
+        .dropdown-content.mini
+          = link_to '編集する', edit_board_path(board)
+          = link_to '削除する', board_path(board) , data: { method: :delete}
