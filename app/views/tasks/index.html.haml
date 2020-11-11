@@ -1,6 +1,6 @@
-.container
-.h2 All Boards
+.container 
+.h2= @board.title
 - @tasks.each do |board|
-  = render 'board' , board: board
-= link_to new_board_path do
+  = render 'task' , task: @task
+= link_to new_board_task_path do
   .float_btn + Add new borad
