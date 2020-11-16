@@ -7,27 +7,27 @@ class TasksController < ApplicationController
     end
 
     def show
-        @task = current_user.tasks.build
-        @tasks = current_user.tasks.find(params[:id])
+        @board = Board.find(params[:board_id])
+        @task =  Task.find(params[:id])
     end
 
     def new
-        
+
         board = Board.find(params[:board_id])
-        binding.pry
         @task = board.tasks.build
-      
+
         # @tasks = current_user.tasks.build
     end
 
     def create
-        @task = current_user.tasks.build(task_params)
-        @task.save!
+      board = Board.find(params[:board_id])
+      @task = board.tasks.build(task_params)
+      @task.save!
     end
 
   private
   def task_params
-    params.require(:task).permit(:title, :content)
+    params.require(:task).permit(:title, :content).merge(user_id: current_user.id)
   end
 
 end
