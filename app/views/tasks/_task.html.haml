@@ -1,5 +1,8 @@
-= link_to board_tasks_path(@board,task) do
+= link_to board_task_path(@board,task) do
   .card
+    - if task.eyecatch.attached?
+      .card_image
+        = image_tag task.eyecatch
     .card_content
       .card_title
         = task.title
@@ -7,8 +10,13 @@
         = task.content
       .card_detail
         = image_tag @board.user.avatar_image
-        %div
-    
+      .board_detail_actions    
+        .dropdown
+          = image_tag 'Combined Shape.png' , class:'dropbtn float_right'
+          .dropdown-content.mini
+            = link_to '編集する', edit_board_task_path(@board, task)
+            = link_to '削除する', board_task_path(@board,task) , data: { method: :delete}
+  
     -# - if @board.eyecatch.attached?
     -#   .card_image
     -#     = image_tag board.eyecath
