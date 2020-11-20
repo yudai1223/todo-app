@@ -1,6 +1,16 @@
 .container 
 .h2= @board.title
 - @tasks.each do |task|
-  = render 'task' , task: @task
+  = render 'task' , task: task
+  -# = link_to board_tasks_path(@board,task) do
+  -# .card
+  -#   .card_content
+  -#     .card_title
+  -#       = task.title
+  -#     .card_content
+  -#       = task.content
+  -#     .card_detail
+  -#       = image_tag @board.user.avatar_image
+  -#       %div
 = link_to new_board_task_path do
   .float_btn + Add new task
