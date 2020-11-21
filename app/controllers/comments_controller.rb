@@ -1,0 +1,4 @@
+class CommentsCntroller < ApplicationController
+
+    
+end
