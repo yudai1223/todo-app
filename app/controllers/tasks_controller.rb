@@ -31,11 +31,21 @@ class TasksController < ApplicationController
     def edit
         board = Board.find(params[:board_id])
         @tasks =board.tasks.find(params[:id])
-        binding.pry
+       
     end
 
     def update
-        
+        # board = Board.find(params[:board_id])
+        @task =  Tasks.find(params[:id])
+        @task.update(task_params)
+        redirect_to board_task_path(@task)
+    end
+
+    def destroy
+        board = Board.find(params[:board_id])
+        task = board.tasks.find(params[:id])
+        task.destroy!
+        redirect_to board_tasks_path(@tasks)
     end
   private
   def task_params
