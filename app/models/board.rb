@@ -1,7 +1,8 @@
 class Board < ApplicationRecord
-    belongs_to :user ,dependent: :destroy
+    belongs_to :user
 
-    has_many :tasks
+    has_many :tasks,dependent: :destroy
+
 
     # def author_name
     #     user.display_name
