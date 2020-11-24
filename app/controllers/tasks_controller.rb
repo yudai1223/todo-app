@@ -3,15 +3,13 @@ class TasksController < ApplicationController
 
     def index
         @board = Board.find(params[:board_id])
-        @tasks = Task.all
-         
-       
+        @tasks = @board.tasks.all
     end
 
     def show
-        @board = Board.find(params[:board_id])
-        @task =  Task.find(params[:id])
-        
+        board = Board.find(params[:board_id])
+        @task = board.tasks.find(params[:id])
+     
     end
 
     def new
@@ -30,13 +28,12 @@ class TasksController < ApplicationController
     
     def edit
         board = Board.find(params[:board_id])
-        @tasks =board.tasks.find(params[:id])
-       
-    end
+        @task = board.tasks.find(params[:id])
+    end    
 
     def update
         # board = Board.find(params[:board_id])
-        @task =  Tasks.find(params[:id])
+        @task = Tasks.find(params[:id])
         @task.update(task_params)
         redirect_to board_task_path(@task)
     end
@@ -45,7 +42,7 @@ class TasksController < ApplicationController
         board = Board.find(params[:board_id])
         task = board.tasks.find(params[:id])
         task.destroy!
-        redirect_to board_tasks_path(@tasks)
+        redirect_to board_tasks_path
     end
   private
   def task_params
