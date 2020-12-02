@@ -2,8 +2,12 @@ class TasksController < ApplicationController
     before_action :authenticate_user!
 
     def index
+        # @board = Board.find(params[:board_id])
+        # @tasks = Task.all
+        # @board = Board.find(params[:board_id])
         @board = Board.find(params[:board_id])
         @tasks = @board.tasks.all
+
     end
 
     def show
@@ -21,6 +25,7 @@ class TasksController < ApplicationController
 
     def create
       board = Board.find(params[:board_id])
+      task = Task.find(params[:id])
       @task = board.tasks.build(task_params)
       @task.save!
       redirect_to board_tasks_path(@task)
