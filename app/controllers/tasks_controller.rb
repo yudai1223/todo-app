@@ -4,15 +4,17 @@ class TasksController < ApplicationController
     def index
         # @board = Board.find(params[:board_id])
         # @tasks = Task.all
-        # @board = Board.find(params[:board_id])
         @board = Board.find(params[:board_id])
+        # @board = Board.find(params[:board_id])
         @tasks = @board.tasks.all
 
     end
 
     def show
         board = Board.find(params[:board_id])
+        # task = Task.find(params[:task_id])
         @task = board.tasks.find(params[:id])
+        # @task = current_user.tasks.find(params[:id])
      
     end
 
@@ -25,10 +27,10 @@ class TasksController < ApplicationController
 
     def create
       board = Board.find(params[:board_id])
-      task = Task.find(params[:id])
+    #   task = Task.find(params[:id])
       @task = board.tasks.build(task_params)
       @task.save!
-      redirect_to board_tasks_path(@task)
+      redirect_to board_tasks_path(board)
     end
     
     def edit
@@ -37,8 +39,8 @@ class TasksController < ApplicationController
     end    
 
     def update
-        # board = Board.find(params[:board_id])
-        @task = Tasks.find(params[:id])
+        board = Board.find(params[:board_id])
+        @task = board.tasks.find(params[:id])
         @task.update(task_params)
         redirect_to board_task_path(@task)
     end

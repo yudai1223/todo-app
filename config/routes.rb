@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   resources :tasks  do
   resources :comments,only:[:new, :create]
   end  
-end
-
+  end
+  
   resource :profile, only: [:show, :edit, :update] do
 end
 end
