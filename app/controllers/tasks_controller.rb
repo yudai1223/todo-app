@@ -14,6 +14,7 @@ class TasksController < ApplicationController
         board = Board.find(params[:board_id])
         # task = Task.find(params[:task_id])
         @task = board.tasks.find(params[:id])
+        @comments = @task.comments
         # @task = current_user.tasks.find(params[:id])
      
     end
@@ -39,10 +40,11 @@ class TasksController < ApplicationController
     end    
 
     def update
-        board = Board.find(params[:board_id])
-        @task = board.tasks.find(params[:id])
+        @task = Task.find(params[:id])
+        # board = Board.find(params[:board_id])
+        # @task = board.tasks.find(params[:id])
         @task.update(task_params)
-        redirect_to board_task_path(@task)
+        redirect_to board_task_path(@task.board)
     end
 
     def destroy

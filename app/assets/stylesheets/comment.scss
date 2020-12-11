@@ -1,0 +1,23 @@
+.comment{
+    position: relative;
+    top: 100%;
+}
+
+
+.new_comment{
+        position: fixed;
+        bottom: 100px;
+        position: relative;
+        bottom: 20px;
+        left: 8%;
+        width: 340px;
+        height: 160px;
+        text-align: center;
+        line-height: 147px;
+        border-radius: 10px;
+        border: 1px dashed rgba(0, 0, 0, 0.2);
+        background-color:#ffff;
+        box-shadow:0px 4px 10px rgba(0,0,0,0.25);
+    
+    
+}
