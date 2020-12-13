@@ -18,12 +18,12 @@
             = link_to '編集する', edit_board_task_path(@task.board)
             = link_to '削除する', board_task_path(@task.board) , data: { method: :delete}
         
-    .comment
-      %h2 コメント一覧
-      - @comments.each do |comment|
-      .task_comment
-        %p= comment.content
-    .new_comment      
-      = link_to  new_board_task_comment_path(board,task)
-        .float_btn 
-        + new comment
+.comment
+  %h2 コメント一覧
+  - @comments.each do |comment|
+  .task_comment
+    %p= comment.content
+  .new_comment      
+    = link_to  new_board_task_comment_path(board,task) do
+      .float_btn 
+      %h2 + new comment        

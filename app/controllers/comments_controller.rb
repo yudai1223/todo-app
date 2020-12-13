@@ -1,15 +1,16 @@
 class CommentsController < ApplicationController
 
     def new
-        task = Task.find(params[:task_id])
-        @comment = task.comments.build
+        @board = Board.find(params[:board_id])
+        @task =@board.tasks.find(params[:task_id])
+        @comment = @task.comments.build
     end
  
     def create
         task = Task.find(params[:task_id])
         @comment = task.comments.build(comment_params)
         @comment.save!
-        redirect_to board_task_path(@task)
+        redirect_to board_task_path(board)
         end
 
     private

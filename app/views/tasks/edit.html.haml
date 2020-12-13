@@ -3,7 +3,7 @@
   %ul
     -# - board.errors.full_messages.each do |message|
     -#   %li= message
-  = form_with(model:@task,url: board_task_path(@task.id), method:'PUT' , local: true) do |f|
+  = form_with(model:@task,url: board_task_path(@task.board), method:'put' , local: true) do |f|
     %div
       = f.label :eyecatch, 'eyecatch'
     %div
