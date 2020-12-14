@@ -24,6 +24,6 @@
   .task_comment
   %p= comment.content
 .new_comment      
-= link_to  new_board_task_comment_path(board) do
+= link_to  new_board_task_comment_path(@board,@task) do
   .float_btn 
-    %h2 + new comment        
+    %h2  new comment        
