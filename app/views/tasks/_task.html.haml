@@ -9,7 +9,9 @@
       .card_content
         = task.content
       .card_detail
-        -# = image_tag @board.user.avatar_image
+        = image_tag @board.user.avatar_image
+        %p
+          = task.display_created_at
       .board_detail_actions    
         .dropdown
           = image_tag 'Combined Shape.png' , class:'dropbtn float_right'

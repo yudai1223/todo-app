@@ -12,7 +12,12 @@
   %body
     %header.header
       -# = image_tag 'Oval.png', class: 'header_right'
-      .header_logos Boards
+      .header_logos 
+      - unless current_page?(root_path)
+        = link_to :back do
+          = image_tag 'back.svg'
+        %p 
+          = link_to 'Board',root_path
       .line
       - if user_signed_in?
         .dropdown
