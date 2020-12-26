@@ -11,6 +11,8 @@ module TodoApp
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
+    if Rails.env.development? || Rails.env.test?
+    end
     Bundler.require(*Rails.groups)
     Dotenv::Railtie.load
     # Settings in config/environments/* take precedence over those specified here.
